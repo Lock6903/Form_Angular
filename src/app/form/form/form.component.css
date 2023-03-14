@@ -6,3 +6,32 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+#stepper{
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 30px;
+}
+button[name=robot]{
+  margin-bottom: 15px;
+}
+.row{
+  width: 1000px;
+}
+img {
+  width: 80px;
+}
+input, textarea{
+  margin-bottom: 15px;
+}
+.modal-body{
+  width: 1000px;
+}
+#robotBox{
+  background-color: grey;
+  padding: 10px;
+  border-radius: 15px;
+  
+}
+img[name=clickedTrue]{
+  opacity: .5;
+}
