@@ -36,7 +36,7 @@
                         
                         
                         
-                            <mat-checkbox id="robotBox" class="example-margin" formControlName="robot"  [checked]="false" [disabled]='thirdFormGroup.invalid' data-bs-toggle="modal" data-bs-target="#modalId">Are you a robot?</mat-checkbox>                          
+                            <mat-checkbox id="robotBox" class="example-margin" formControlName="robot"  [checked]="false"  data-bs-toggle="modal" data-bs-target="#modalId">Are you a robot?</mat-checkbox>                          
                     
 
 
@@ -113,7 +113,7 @@
       </ul>
     </span>
   </section>    
-  <button class="btn btn-info" mat-button matStepperNext >Next</button>
+  <button *ngIf="value !== 100 " class="btn btn-info" mat-button matStepperNext >Next</button>
                       <div *ngIf="value=== 100">
                         <br>    
                         <button class="btn btn-danger" mat-button (click)="stepper.reset()">Reset</button>

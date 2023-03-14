@@ -120,7 +120,6 @@ export class FormComponent{
     // checkedTest=true;
     // clicked = false;
     classType="clickedFalse";
-    // disableBut=false;
 testCheck(event:Event){
   const target = event.target as HTMLImageElement;
   const value = target.alt;
