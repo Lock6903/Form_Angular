@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CheckboxControlValueAccessor, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { userService } from 'src/app/servicios/userServices';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent{
+export class FormComponent implements OnInit{
    value = 0; 
   increaseValue1(){
     if (this.name.valid && this.surname.valid && this.phone.valid && this.email.valid && this.gender.valid && this.birthday.valid) {
@@ -133,10 +134,13 @@ testCheck(event:Event){
          }
   }
 }
-  constructor(private userServices : userService){}
+  constructor(private userServices : userService, private router:Router){}
   Click(){
     // console.log(datos);
     this.userServices.sendUsers(this.name.value, this.surname.value, this.phone.value, this.email.value, this.gender.value, this.birthday.value, this.experience.value, this.work.value, this.robot.value, this.privateP.value, this.more16.value, this.instaAngus.value)
+  }
+  ngOnInit(): void {
+    this.router.navigateByUrl('/');
   }
 }
 export interface User {

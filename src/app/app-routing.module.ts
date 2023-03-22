@@ -6,6 +6,9 @@ import { FormComponent } from './form/form/form.component';
 import { FormViewComponent } from './formView/form-view/form-view.component';
 const routes: Routes = [
   {
+    path: '', component:FormComponent,
+  },
+  {
     path: 'home', component:HomeComponent,
   },
   {

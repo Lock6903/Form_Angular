@@ -9,7 +9,8 @@
 #stepper{
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 30px;
+  margin-top: 20px;
+  
 }
 button[name=robot]{
   margin-bottom: 15px;

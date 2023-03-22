@@ -30,5 +30,5 @@ export interface User {
     robot:boolean; 
     privateP:boolean; 
     more16:boolean; 
-    instaAngus:boolean
+    instaAngus:boolean;
 }

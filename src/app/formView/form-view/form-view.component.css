@@ -1,0 +1,17 @@
+#formView{
+    background-image: url("../../../assets/images/form/workBGedit.jpg");
+    height: 619px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #formTable{
+    margin-left: 13%;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    
+}
+
+  
