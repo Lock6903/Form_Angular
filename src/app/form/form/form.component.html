@@ -1,141 +1,136 @@
-<div id="formBody">
+<div>
     <mat-progress-bar color="warn" mode="determinate" [value]=value></mat-progress-bar>
 
     <mat-stepper linear #stepper id="stepper">
-        <mat-step [stepControl]="firstFormGroup" editable="false">
-            <form (ngSubmit)="increaseValue1()" [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Personal Info</ng-template>
-                <small *ngIf="name.invalid">Ta mal</small>
-                <input type="text" class="form-control" name="name" formControlName="name" placeholder="Name" required>
-                <small *ngIf="surname.invalid">Ta mal</small>
-                <input type="text" class="form-control" name="surname" formControlName="surname" placeholder="Surname" required>
-                
-                <input type="text" class="form-control" name="phone" formControlName="phone" placeholder="Phone" required>
-                <small *ngIf="phone.invalid">Ta mal</small>
-                <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email" required>
-                <small *ngIf="email.invalid">Ta mal</small>
-                <input type="text" class="form-control" name="gender" formControlName="gender" placeholder="Gender" required>
-                <small *ngIf="gender.invalid">Ta mal</small>
-                <input type="date" class="form-control" name="birthday" formControlName="birthday" placeholder="Birthday" required>
-                <div>
-                    <br> <button id="Next" class="btn btn-info" mat-button matStepperNext>Next</button>
-                </div>
-            </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" editable="false">
-            <form (ngSubmit)="increaseValue2()" [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Experience</ng-template>
-                <textarea type="text" class="form-control" name="experience" formControlName="experience"
-                    placeholder="Experience"></textarea>
-                <input type="text" class="form-control" name="work" formControlName="work"
-                    placeholder="Name of your last firm">
+    <mat-step [stepControl]="firstFormGroup" editable="false">
+        <form (ngSubmit)="increaseValue1()" [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Personal Info</ng-template>
+            <small *ngIf="name.invalid">Name cant be empty</small>
+            <input type="text" class="form-control" name="name" formControlName="name" placeholder="Name" required>
+            <small *ngIf="surname.invalid">Surname cant be empty</small>
+            <input type="text" class="form-control" name="surname" formControlName="surname" placeholder="Surname" required>
+            <small *ngIf="phone.invalid">Phone has to be bigger than 9 digits or smaller than 12</small>
+            <input type="text" class="form-control" name="phone" formControlName="phone" placeholder="Phone" required>
+            <small *ngIf="email.invalid">Not an Email</small>
+            <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email" required>
+            <small *ngIf="gender.invalid">You have to put something as a gender</small>     
+            <input type="text" class="form-control" name="gender" formControlName="gender" placeholder="Gender" required>
+            <small *ngIf="birthday.invalid">Put date</small>
+            <input type="date" class="form-control" name="birthday" formControlName="birthday" placeholder="Birthday" required>
 
-                <div>
-                    <br> <button class="btn btn-info" mat-button matStepperNext>Next</button>
-                </div>
-            </form>
-        </mat-step>
-        <mat-step [stepControl]="thirdFormGroup" editable="false">
-            <form (ngSubmit)="increaseValue3()" [formGroup]="thirdFormGroup">
-                <ng-template matStepLabel>Security</ng-template>
-                <!-- Modal trigger button -->
+            <ng-template matStepLabel>Experience</ng-template>
+            <textarea type="text" class="form-control" name="experience" formControlName="experience" placeholder="Experience"></textarea>
+            <input type="text" class="form-control" name="work" formControlName="work"
+                placeholder="Name of your last firm">
 
-                <mat-checkbox id="robotBox" class="example-margin" formControlName="robot" [checked]="false"
-                    data-bs-toggle="modal" data-bs-target="#modalId">Are you a robot?</mat-checkbox>
-                <!-- Modal Body -->
-                <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-                <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalTitleId">Semaforos</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="container modal-body" class="row">
-                                <div class="row">
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="1"
-                                        src='../../../assets/images/robot/1.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="2"
-                                        src='../../../assets/images/robot/2.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="3"
-                                        src='../../../assets/images/robot/3.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="4"
-                                        src='../../../assets/images/robot/4.png'>
-                                </div>
-                                <div class="row">
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="5"
-                                        src='../../../assets/images/robot/5.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="6"
-                                        src='../../../assets/images/robot/6.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="7"
-                                        src='../../../assets/images/robot/7.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="8"
-                                        src='../../../assets/images/robot/8.png'>
-                                </div>
-                                <div class="row">
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="9"
-                                        src='../../../assets/images/robot/9.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="10"
-                                        src='../../../assets/images/robot/10.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="11"
-                                        src='../../../assets/images/robot/11.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="12"
-                                        src='../../../assets/images/robot/12.png'>
-                                </div>
-                                <div class="row">
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="13"
-                                        src='../../../assets/images/robot/13.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="14"
-                                        src='../../../assets/images/robot/14.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="15"
-                                        src='../../../assets/images/robot/15.png'>
-                                    <img id="img" (click)="testCheck($event)" [name]="classType" alt="16"
-                                        src='../../../assets/images/robot/16.png'>
-                                </div>
+            <div>
+                 <button class="btn btn-info" mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" editable="false">
+        <form (ngSubmit)="Click(firstFormGroup.value)" [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Security</ng-template>
+            <!-- Modal trigger button -->
 
+            <mat-checkbox id="robotBox" class="example-margin" formControlName="robot" [checked]="false"
+                data-bs-toggle="modal" data-bs-target="#modalId">Are you a robot?</mat-checkbox><br>
+                <small *ngIf="robot.invalid">Click the checkbox</small>
+
+            <!-- Modal Body -->
+            <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+            <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">Semaforos</h5>
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="container modal-body" class="row">
+                            <div class="row">
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="1"
+                                    src='../../../assets/images/robot/1.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="2"
+                                    src='../../../assets/images/robot/2.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="3"
+                                    src='../../../assets/images/robot/3.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="4"
+                                    src='../../../assets/images/robot/4.png'>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
+                            <div class="row">
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="5"
+                                    src='../../../assets/images/robot/5.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="6"
+                                    src='../../../assets/images/robot/6.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="7"
+                                    src='../../../assets/images/robot/7.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="8"
+                                    src='../../../assets/images/robot/8.png'>
                             </div>
+                            <div class="row">
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="9"
+                                    src='../../../assets/images/robot/9.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="10"
+                                    src='../../../assets/images/robot/10.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="11"
+                                    src='../../../assets/images/robot/11.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="12"
+                                    src='../../../assets/images/robot/12.png'>
+                            </div>
+                            <div class="row">
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="13"
+                                    src='../../../assets/images/robot/13.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="14"
+                                    src='../../../assets/images/robot/14.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="15"
+                                    src='../../../assets/images/robot/15.png'>
+                                <img id="img" (click)="testCheck($event)" [name]="classType" alt="16"
+                                    src='../../../assets/images/robot/16.png'>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                <!-- Optional: Place to the bottom of scripts -->
-                <script>
-                    const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
+            <!-- Optional: Place to the bottom of scripts -->
+            <script>
+                const myModal = new bootstrap.Modal(document.getElementById('modalId'), options)
 
-                </script>
-                <section class="example-section">
-                    <span class="example-list-section">
-                        <mat-checkbox class="example-margin" [checked]="allComplete" [color]="task.color"
-                            [indeterminate]="someComplete()" (change)="setAll($event.checked)"
-                            formControlName="privateP">
-                            {{task.name}}
-                        </mat-checkbox>
-                    </span>
-                    <span class="example-list-section">
-                        <ul>
-                            <div *ngFor="let subtask of task.subtasks">
-                                <mat-checkbox [(ngModel)]="subtask.completed" [color]="subtask.color"
-                                    (ngModelChange)="updateAllComplete()" formControlName={{subtask.controlName}}>
-                                    {{subtask.name}}
-                                </mat-checkbox>
-                            </div>
-                        </ul>
-                    </span>
-                </section>
-                <button *ngIf="value !== 100 " class="btn btn-info" mat-button matStepperNext>Next</button>
-                <div *ngIf="value=== 100">
-                    <br>
-                    <button class="btn btn-danger" mat-button (click)="stepper.reset()">Reset</button>
-                </div>
-            </form>
+            </script>
+            <small *ngIf="privateP.invalid">Click the checkbox</small>
+            <section class="example-section">
+                <span class="example-list-section">
+                    <mat-checkbox class="example-margin" [checked]="allComplete" [color]="task.color"
+                        [indeterminate]="someComplete()" (change)="setAll($event.checked)"
+                        formControlName="privateP">
+                        {{task.name}}
+                    </mat-checkbox>
+                </span>
+                <span class="example-list-section">
+                    <ul>
+                        <div *ngFor="let subtask of task.subtasks">
+                            <mat-checkbox [(ngModel)]="subtask.completed" [color]="subtask.color"
+                                (ngModelChange)="updateAllComplete()" formControlName={{subtask.controlName}}>
+                                {{subtask.name}}
+                            </mat-checkbox>
+                        </div>
+                    </ul>
+                </span>
+            </section>
+            <button *ngIf="value !== 100 " class="btn btn-info" mat-button matStepperNext>Next</button>
+            <div *ngIf="value=== 100">
+                <button class="btn btn-danger" mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </form>
 
-        </mat-step>
-    </mat-stepper>
-
+    </mat-step>
+</mat-stepper>
 </div>

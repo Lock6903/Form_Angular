@@ -1,6 +1,6 @@
 <div id="formView">
 <div class="card highlight-card card-small">
-    <p>Users</p>
+    <input type="text" (keyup)="applyFilter($event)">
 </div>
   
   <table  id="formTable" class="center"  style="width:75%" >
@@ -28,7 +28,7 @@
         <td>{{user.birthday}}</td>
         <td>{{user.experience}}</td>
         <td>{{user.work}}</td>
-
+<td><button>X</button></td>
       </tr>
     </ng-container>
   </tbody>

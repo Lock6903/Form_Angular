@@ -13,6 +13,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,7 +38,8 @@ import { userService } from './servicios/userServices';
     MatProgressBarModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [userService],
   bootstrap: [AppComponent]

@@ -1,34 +1,33 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, of } from "rxjs";
 import { Observable } from 'rxjs/internal/Observable';
-
+import { User } from "./userInterface";
 
 @Injectable()
 export class userService{
-    constructor(){}
-    users:User[] = [ ];
+    constructor(private http: HttpClient) { }
+    private urlUsers = 'http://172.16.22.80:8080/user';
 
-    public sendUsers(name:string, surname:string, phone:string, email:string, gender: string, birthday:Date, experience:string, work: string, robot: boolean, privateP:boolean, more16:boolean, instaAngus:boolean):Observable<User[]>{
-        if(name != "" && surname != "" && phone != ""){
-            this.users.push({name: name, surname: surname, phone :phone, email :email, gender: gender, birthday:birthday, experience:experience, work:work, robot:robot, privateP:privateP, more16:more16, instaAngus:instaAngus});
-        }
-        return of(this.users);
-    }
-
-}
-export interface User {
-    name: string; 
-    surname:string; 
-    phone:string;
-    email:string;
-    gender:string; 
-    birthday:Date; 
-
-    experience:string; 
-    work:string; 
+    getUsers(): Observable<User[]> {
+        return this.http.get<User[]>(this.urlUsers);
+      }
     
-    robot:boolean; 
-    privateP:boolean; 
-    more16:boolean; 
-    instaAngus:boolean;
+      getUserById(id: string): Observable<User> {
+        return this.http.get<User>(`${this.urlUsers}/${id}`);
+      }
+    
+      addUser(user: User): Observable<User> {
+        console.log(user);
+        
+        return this.http.post<User>(this.urlUsers, user);
+      }
+    
+      updateUser(id: string, user: User): Observable<User> {
+        return this.http.put<User>(`${this.urlUsers}/${id}`, user);
+      }
+    
+      deleteUser(id: string): Observable<any> {
+        return this.http.delete(`${this.urlUsers}/${id}`);
+      }
+
 }
